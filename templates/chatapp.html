@@ -60,6 +60,7 @@
             var username=$('input.username').val()
             var message=$('input.message').val()
             console.log(username,message)
+            socket.emit('formfill',{user:username,message:message})
         })
 
         socket.on('my response',function(msg){

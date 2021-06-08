@@ -14,6 +14,11 @@ def handle_myevent(json):
     print('received data from client ....................',str(json))
     socketio.emit('my response',json)
 
+@socketio.on('formfill')
+def handle_formfill(json):
+    print('posted username and message ....................',str(json))
+    socketio.emit('my response',json)
+
 @app.route('/')
 def index():
     return render_template('chatapp.html')
