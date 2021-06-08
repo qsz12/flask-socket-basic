@@ -5,8 +5,6 @@ from loguru import logger
 import requests
 import random
 
-from werkzeug import debug
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "")
 socketio = SocketIO(app)
