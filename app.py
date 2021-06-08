@@ -5,6 +5,8 @@ from loguru import logger
 import requests
 import random
 
+from werkzeug import debug
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "")
 socketio = SocketIO(app)
@@ -44,4 +46,4 @@ def home():
 
 
 if __name__ == "__main__":
-    socketio.run(app)
+    socketio.run(app,debug=True)
