@@ -12,7 +12,7 @@ socketio=SocketIO(app,cors_allowed_origins="*")
 @socketio.on('my event')
 def handle_myevent(json):
     print('received data from client ....................',str(json))
-    socketio.emit('my response',json)
+    # socketio.emit('my response',json)
 
 @socketio.on('formfill')
 def handle_formfill(json):

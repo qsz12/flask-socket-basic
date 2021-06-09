@@ -60,16 +60,16 @@
             e.preventDefault()
             var username=$('input.username').val()
             var message=$('input.message').val()
-            console.log(username,message)
-            document.getElementById('msgs').innerHTML+=(
-               ` <div class="bold" >${username}</div>
-                <div>${message}</div><hr>`
-            )
+            $('input.message').innerHTML=''
             socket.emit('formfill',{user:username,message:message})
         })
 
         socket.on('my response',function(msg){
-            console.log('handshape msg from server',msg)
+            console.log('response msg from server',msg.user,msg.message)
+            document.getElementById('msgs').innerHTML+=(
+               ` <div class="bold" ><b>${msg.user}</b></div>
+                <div>${msg.message}</div><hr>`
+            )
         })
 
     </script>
